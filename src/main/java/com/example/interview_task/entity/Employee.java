@@ -3,8 +3,9 @@ package com.example.interview_task.entity;
 import javax.persistence.*;
 
 @Entity
-@Table
-public class Employee {
+@Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorColumn(name="STATUS",discriminatorType=DiscriminatorType.STRING)
+public class Employee{
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
