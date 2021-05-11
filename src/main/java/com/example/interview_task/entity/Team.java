@@ -4,29 +4,22 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name="STATUS",discriminatorType=DiscriminatorType.STRING)
-public class Employee{
+public class Team {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
 
     @ManyToMany
-    @JoinTable(
-            name = "employee_team",
-            joinColumns = {@JoinColumn(name = "employee_id")},
-            inverseJoinColumns = {@JoinColumn (name = "team_id")}
-    )
-    Set<Team> teams;
+    Set<Employee> teamEmployees;
 
     @Column(length = 50)
     private String name;
 
-    public Employee() {
+    public Team() {
     }
 
-    public Employee(String name) {
+    public Team(String name) {
         this.name = name;
     }
 
