@@ -13,6 +13,11 @@ public class Employee{
     private Long id;
 
     @ManyToMany
+    @JoinTable(
+            name = "employee_team",
+            joinColumns = {@JoinColumn(name = "employee_id")},
+            inverseJoinColumns = {@JoinColumn (name = "team_id")}
+    )
     Set<Team> teams;
 
     @Column(length = 50)
