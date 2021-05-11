@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table
+@DiscriminatorValue("Active")
 public class ActiveEmployee {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
