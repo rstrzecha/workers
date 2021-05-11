@@ -56,8 +56,7 @@ public class ActiveEmployeeController {
         Optional<ActiveEmployee> foundEmployee = activeEmployeeManager.findById(id);
         if(foundEmployee.isPresent()) {
             ActiveEmployee newActiveEmployee = foundEmployee.get();
-            newActiveEmployee.setDateOfEmployment(LocalDate.parse(newDateOfEmployment));          /*setSalary(Double
-            .parseDouble(newSalary));*/
+            newActiveEmployee.setDateOfEmployment(LocalDate.parse(newDateOfEmployment));
             newActiveEmployee.setId(id);
             activeEmployeeManager.save(newActiveEmployee);
             return new ResponseEntity<>(HttpStatus.OK);
